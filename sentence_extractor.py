@@ -29,7 +29,7 @@ def extractTexts():
 def selectSentences(texts):
     chosen_sentences = []
     for text in texts:
-        sentence_structure = re.compile(r'([A-Z][^\.!?]*[\.!?])', re.M)
+        sentence_structure = re.compile(r'([A-Z\xc4\xc5\xd6][^\.!?]*[\.!?])', re.M)
         sentences = sentence_structure.findall(text)
         chosen_sentences.append(
             sentences[random.randint(0, len(sentences)-1)].replace("\n", " ")

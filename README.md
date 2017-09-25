@@ -4,6 +4,4 @@ Sentence extractor consists of scripts helping when **singular sentences** must 
 Sentence extractor makes use of **textract**, which requires [this](http://textract.readthedocs.io/en/latest/installation.html) to work. An installation script will be created in the future.
 
 TODO:
-* Write sentence extractor script.
-* Add functionality for folders.
 * Write installation script.

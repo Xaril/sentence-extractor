@@ -5,9 +5,10 @@ import re
 import random
 
 ###################################
-# Extracts text from a pdf file and
-# selects one sentence, which it
-# then prints.
+# Extracts text from one or more
+# pdf file and selects one sentence
+# from each, which the program then
+# prints.
 #
 # Created by Fredrik Omstedt.
 ###################################
@@ -36,6 +37,8 @@ def selectSentences(texts):
         )
     return chosen_sentences
 
+# Extracts texts from one or more pdf files, chooses one random
+# sentence from each of the texts, and prints it.
 def main():
     texts = extractTexts()
     sentences = selectSentences(texts)

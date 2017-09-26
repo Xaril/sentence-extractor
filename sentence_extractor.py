@@ -17,14 +17,16 @@ import random
 # program will return texts from all pdf files in that directory.
 def extractTexts():
     file = sys.argv[1]
+    file_names = []
     texts = []
     if os.path.isdir(file):
         for f in os.listdir(file):
             if re.match(r'^.*\.pdf$', f):
+                file_names.append(f)
                 texts.append(textract.process(file + "/" + f))
     else:
         texts.append(textract.process(file))
-    return texts
+    return file_names, texts
 
 # Chooses one sentence randomly from each of the given texts.
 def selectSentences(texts):
@@ -40,10 +42,10 @@ def selectSentences(texts):
 # Extracts texts from one or more pdf files, chooses one random
 # sentence from each of the texts, and prints it.
 def main():
-    texts = extractTexts()
+    file_names, texts = extractTexts()
     sentences = selectSentences(texts)
-    for sentence in sentences:
-        print(sentence)
+    for i in range(0, len(sentences)):
+        print(file_names[i] + " - " + sentences[i])
         print("\n")
 
 if __name__ == '__main__':
